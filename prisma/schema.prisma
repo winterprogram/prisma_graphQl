@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output = "../src/generated/type-graphql"
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Status {
+  VERIFIED
+  UNVERIFIED
+  CREATED
+}
+
+enum Login {
+  GOOGLE
+  APPLE
+  EMAIL
+}
+
+model TempAccount{
+  id String @id @default(uuid())
+  email String?
+  phoneNumber String? @map("phone_number")
+  otp Int?
+  @@map("temp_accounts")
+}
+model Account {
+  id String @id @default(uuid())
+  email String?
+  phoneNumber String? @map("phone_number")
+  /// @TypeGraphQL.omit(output: false)
+  password String?
+  pin Int?
+  dob String?
+  loginType Login? @map("login_type")
+  user User?
+  kyc Kyc?
+  @@unique([phoneNumber, email])
+  @@index(fields: [id, phoneNumber, email], name: "account_index")
+  @@map("accounts")
+}
+
+model User {
+  id String @id @default(uuid())
+  firstName String @map("first_name")
+  country String @default("IN")
+  lastName String @map("last_name")
+  account Account? @relation(fields: [accountId], references: [id])
+  accountId String?
+  @@map("users")
+}
+
+
+model Kyc{
+id String @id @default(uuid())
+panNumber String @map("pan_number")
+uidNumber Int @map("uid_number")
+account Account? @relation(fields: [accountId], references: [id])
+accountId String
+ @@map("user_kycs")
+}

@@ -1,0 +1,12 @@
+export { AggregateTempAccountArgs } from "./AggregateTempAccountArgs";
+export { CreateManyTempAccountArgs } from "./CreateManyTempAccountArgs";
+export { CreateTempAccountArgs } from "./CreateTempAccountArgs";
+export { DeleteManyTempAccountArgs } from "./DeleteManyTempAccountArgs";
+export { DeleteTempAccountArgs } from "./DeleteTempAccountArgs";
+export { FindFirstTempAccountArgs } from "./FindFirstTempAccountArgs";
+export { FindManyTempAccountArgs } from "./FindManyTempAccountArgs";
+export { FindUniqueTempAccountArgs } from "./FindUniqueTempAccountArgs";
+export { GroupByTempAccountArgs } from "./GroupByTempAccountArgs";
+export { UpdateManyTempAccountArgs } from "./UpdateManyTempAccountArgs";
+export { UpdateTempAccountArgs } from "./UpdateTempAccountArgs";
+export { UpsertTempAccountArgs } from "./UpsertTempAccountArgs";

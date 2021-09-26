@@ -1,0 +1,12 @@
+export { AggregateKycArgs } from "./AggregateKycArgs";
+export { CreateKycArgs } from "./CreateKycArgs";
+export { CreateManyKycArgs } from "./CreateManyKycArgs";
+export { DeleteKycArgs } from "./DeleteKycArgs";
+export { DeleteManyKycArgs } from "./DeleteManyKycArgs";
+export { FindFirstKycArgs } from "./FindFirstKycArgs";
+export { FindManyKycArgs } from "./FindManyKycArgs";
+export { FindUniqueKycArgs } from "./FindUniqueKycArgs";
+export { GroupByKycArgs } from "./GroupByKycArgs";
+export { UpdateKycArgs } from "./UpdateKycArgs";
+export { UpdateManyKycArgs } from "./UpdateManyKycArgs";
+export { UpsertKycArgs } from "./UpsertKycArgs";
